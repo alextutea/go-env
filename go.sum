@@ -1,0 +1,6 @@
+github.com/alextutea/go-table-tests v1.0.0 h1:OPXQM37AqTJAZfPNn5ov3UIpqNDd/wQRv/jg0/mGAJs=
+github.com/alextutea/go-table-tests v1.0.0/go.mod h1:xu2gX77HQIhlD5wUkPZdyDAgPpxgauyv2UjwNYMteFk=
+github.com/alextutea/go-tags v0.0.0-20220526171713-78d47caa2ca8 h1:o1JinBbfMm9mePkAwNCy+EDLt+bOVkSkVVe/ZTTdv+4=
+github.com/alextutea/go-tags v0.0.0-20220526171713-78d47caa2ca8/go.mod h1:+Ni27kbSgUeZvdcXRF/+ZOn/j2HrIwq9/33by7J82mc=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
