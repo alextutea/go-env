@@ -1,6 +1,6 @@
 module github.com/alextutea/go-env
 
-go 1.18
+go 1.19
 
 require (
 	github.com/alextutea/go-table-tests v1.0.0

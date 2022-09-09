@@ -19,15 +19,15 @@ const (
 	envKeyConnector   = "_"
 )
 
-func Unmarshal(i interface{}, filePaths ...string) error {
+func Unmarshal(i any, filePaths ...string) error {
 	return UnmarshalMap(environToMap(os.Environ()), i, filePaths...)
 }
 
-func UnmarshalFile(path string, i interface{}) error {
+func UnmarshalFile(path string, i any) error {
 	return UnmarshalMap(environToMap(os.Environ()), i, path)
 }
 
-func UnmarshalMap(envMap map[string]string, i interface{}, paths ...string) error {
+func UnmarshalMap(envMap map[string]string, i any, paths ...string) error {
 	v := reflect.ValueOf(i)
 	t := v.Type()
 
@@ -183,18 +183,18 @@ func parseCfgFile(path string) (map[string]string, error) {
 	return flatMap, nil
 }
 
-func flattenMap(nestedMap map[string]interface{}, connector string) map[string]string {
+func flattenMap(nestedMap map[string]any, connector string) map[string]string {
 	flatMap := make(map[string]string)
 
 	for k, v := range nestedMap {
-		if m, ok := v.(map[string]interface{}); ok {
+		if m, ok := v.(map[string]any); ok {
 			flatSubmap := flattenMap(m, connector)
 			for subK, subV := range flatSubmap {
 				flatMap[k+connector+subK] = subV
 			}
 			continue
 		}
-		if _, ok := v.([]interface{}); ok {
+		if _, ok := v.([]any); ok {
 			continue
 		}
 		if b, ok := v.(bool); ok {
@@ -218,13 +218,13 @@ func flattenMap(nestedMap map[string]interface{}, connector string) map[string]s
 	return flatMap
 }
 
-func readCfgFile(path string) (map[string]interface{}, error) {
+func readCfgFile(path string) (map[string]any, error) {
 	jsonBytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, errors.Wrapf(err, "opening %s", path)
 	}
 
-	m := make(map[string]interface{})
+	m := make(map[string]any)
 
 	err = json.Unmarshal(jsonBytes, &m)
 	if err != nil {
