@@ -11,7 +11,7 @@ type TargetNotPtrToStructError struct {
 }
 
 func (e TargetNotPtrToStructError) Error() string {
-	return fmt.Sprintf("Target passed must be a reference to a struct type, not a %s", e.ActualType.Name())
+	return fmt.Sprintf("target passed must be a reference to a struct type, not a %s", e.ActualType.Name())
 }
 
 func NewTargetNotPtrToStructError(t reflect.Type) TargetNotPtrToStructError {

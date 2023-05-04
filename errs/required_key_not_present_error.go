@@ -13,7 +13,7 @@ type RequiredKeyNotPresentError struct {
 func (e RequiredKeyNotPresentError) Error() string {
 	if len(e.Keys) == 1 {
 		return fmt.Sprintf(
-			"Required env key missing; %s must be provided", e.Keys[0],
+			"required env key missing; %s must be provided", e.Keys[0],
 		)
 	}
 	var sb strings.Builder
@@ -24,7 +24,7 @@ func (e RequiredKeyNotPresentError) Error() string {
 		}
 	}
 	return fmt.Sprintf(
-		"Required env key missing; one of the following keys must be provided [%s]",
+		"required env key missing; one of the following keys must be provided [%s]",
 		sb.String(),
 	)
 }

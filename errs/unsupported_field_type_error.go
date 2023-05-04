@@ -11,7 +11,7 @@ type UnsupportedFieldTypeError struct {
 }
 
 func (e UnsupportedFieldTypeError) Error() string {
-	return fmt.Sprintf("All fields must be a string, int, float, bool or struct, not a %s", e.ActualType.Name())
+	return fmt.Sprintf("all fields must be a string, int, float, bool or struct, not a %s", e.ActualType.Name())
 }
 
 func NewUnsupportedFieldTypeError(t reflect.Type) UnsupportedFieldTypeError {
